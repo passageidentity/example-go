@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/passageidentity/passage-go"
 )
@@ -9,7 +11,9 @@ import (
 func main() {
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/dashboard", dashboardHandler)
-	http.ListenAndServe(":8080", nil)
+	http.Handle("/assets/", http.FileServer(http.Dir("./templates")))
+
+	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
@@ -20,6 +24,7 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 	psg := passage.New("demo")
 	_, err := psg.AuthenticateRequest(r)
 	if err != nil {
+		fmt.Println("Authentication Failed:", err)
 		http.ServeFile(w, r, "templates/unauthorized.html")
 		return
 	}
