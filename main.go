@@ -21,7 +21,8 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func dashboardHandler(w http.ResponseWriter, r *http.Request) {
-	psg := passage.New("demo")
+	// Authenticate this request using the Passage SDK.
+	psg := passage.New()
 	_, err := psg.AuthenticateRequest(r)
 	if err != nil {
 		fmt.Println("Authentication Failed:", err)
