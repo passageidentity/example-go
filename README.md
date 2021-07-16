@@ -16,7 +16,7 @@ import (
 func exampleHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Authenticate this request using the Passage SDK.
-	psg := passage.New("<APP_HANDLE>")
+	psg := passage.New("<Passage App Handle>")
 	_, err := psg.AuthenticateRequest(r)
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
@@ -36,7 +36,7 @@ It is important to remember that the `psg.AuthenticateRequest()` function valida
 func exampleHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Authenticate this request using the Passage SDK.
-	psg := passage.New("<APP_HANDLE>")
+	psg := passage.New("<Passage App Handle>")
 	passageHandle, err := psg.AuthenticateRequest(r)
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
