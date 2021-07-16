@@ -22,9 +22,12 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 
 func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 	// Authenticate this request using the Passage SDK.
-	psg := passage.New()
-	_, err := psg.AuthenticateRequest(r)
+	psg, err := passage.New("UKbRUx")
 	if err != nil {
+		fmt.Println("Cannot create psg: ", err)
+	}
+	_, errAuth := psg.AuthenticateRequest(r)
+	if errAuth != nil {
 		fmt.Println("Authentication Failed:", err)
 		http.ServeFile(w, r, "templates/unauthorized.html")
 		return
