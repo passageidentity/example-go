@@ -2,10 +2,6 @@
 
 Passage provides an SDK to easily authenticate HTTP requests. Example source code can be found on GitHub, [here](https://github.com/passageidentity/example-go).
 
-### Configuring a Go Server
-
-The `passage-go` SDK depends on a `PASSAGE_PUBLIC_KEY` environment variable being set. An app's `PASSAGE_PUBLIC_KEY` can be copied off of the Passage Console.
-
 ### Authenticating an HTTP Request
 
 A Go server can easily authenticate an HTTP request using the Passage SDK, as shown below.
@@ -20,7 +16,7 @@ import (
 func exampleHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Authenticate this request using the Passage SDK.
-	psg := passage.New()
+	psg := passage.New("<APP_HANDLE>")
 	_, err := psg.AuthenticateRequest(r)
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
@@ -40,7 +36,7 @@ It is important to remember that the `psg.AuthenticateRequest()` function valida
 func exampleHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Authenticate this request using the Passage SDK.
-	psg := passage.New()
+	psg := passage.New("<APP_HANDLE>")
 	passageHandle, err := psg.AuthenticateRequest(r)
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
