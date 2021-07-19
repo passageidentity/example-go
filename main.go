@@ -35,7 +35,7 @@ func outputHTML(w http.ResponseWriter, filename string, data interface{}) {
 
 func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 	// Authenticate this request using the Passage SDK.
-	psg, err := passage.New("UKbRUx", os.Getenv("API_KEY"))
+	psg, err := passage.New("UKbRUx", os.Getenv("PASSAGE_API_KEY"))
 	if err != nil {
 		fmt.Println("Cannot create psg: ", err)
 	}
