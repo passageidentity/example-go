@@ -56,6 +56,26 @@ func exampleHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
+## Get User
+ To get user information, you can use the Passage SDK with an API key. This will authenticate your web server to Passage and grant you management
+ access to user information. API keys should never be hard-coded in source code, but stored in environment variables or a secrets storage mechanism.
+```go
+
+	psg := passage.New("<Passage App Handle>", "<API_KEY>")
+	passageHandle, err := psg.AuthenticateRequest(r)
+	if err != nil {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+   
+    //information regarding the user will exist in the user variable
+	user, err := psg.GetUser(passageHandle)
+	if err != nil {
+		fmt.Println("Could not get user: ", err)
+		return
+	}
+```
+
 ### Adding Authentication to the Frontend
 
 The easiest way to add authentication to a web frontend is with a Passage Element. The HTML below will automatically embed a complete UI/UX for user sign-in and sign-up.
