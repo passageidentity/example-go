@@ -2,8 +2,8 @@ github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/golang-jwt/jwt v3.2.2+incompatible h1:IfV12K8xAKAnZqdXVzCZ+TOjboZ2keLg81eXfW3O+oY=
 github.com/golang-jwt/jwt v3.2.2+incompatible/go.mod h1:8pz2t5EyA70fFQQSrl6XZXzqecmYZeUEB8OUGHkxJ+I=
-github.com/passageidentity/passage-go v0.13.0 h1:kFhR9rfdi6IK2smjHRXgqLHjs/+/kK3qttwrlkvG9Io=
-github.com/passageidentity/passage-go v0.13.0/go.mod h1:UvFvzPuSKx16jwWXti/JIaW9+3MfJw2fE+PbMV43I5I=
+github.com/passageidentity/passage-go v1.1.0 h1:nNfa2x/0v4HFpReXpds/IbDU72h/9T9m9TVld4DDoic=
+github.com/passageidentity/passage-go v1.1.0/go.mod h1:UvFvzPuSKx16jwWXti/JIaW9+3MfJw2fE+PbMV43I5I=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
