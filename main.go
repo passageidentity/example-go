@@ -35,17 +35,17 @@ func outputHTML(w http.ResponseWriter, filename string, data interface{}) {
 
 func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 	// Authenticate this request using the Passage SDK.
-	psg, err := passage.New("UKbRUx", os.Getenv("PASSAGE_API_KEY"))
+	psg, err := passage.New("KZ520QJSiFRLvbBvraaAgYuf", &passage.Config{APIKey: os.Getenv("PASSAGE_API_KEY")})
 	if err != nil {
 		fmt.Println("Cannot create psg: ", err)
 	}
-	userHandle, err := psg.AuthenticateRequest(r)
+	userID, err := psg.AuthenticateRequest(r)
 	if err != nil {
 		fmt.Println("Authentication Failed:", err)
 		http.ServeFile(w, r, "templates/unauthorized.html")
 		return
 	}
-	user, err := psg.GetUser(userHandle)
+	user, err := psg.GetUser(userID)
 	if err != nil {
 		fmt.Println("Could not get user: ", err)
 		return
