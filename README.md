@@ -81,7 +81,7 @@ func exampleHandler(w http.ResponseWriter, r *http.Request) {
 The easiest way to add authentication to a web frontend is with a Passage Element. The HTML below will automatically embed a complete UI/UX for user sign-in and sign-up.
 
 ```html
-<!-- Passage will populate this custom-element with a complete authentication UI/UX. -->
+<!-- Passage will populate this custom element with a complete authentication UI/UX. -->
 <passage-auth app-id="<Passage App Handle>"></passage-auth>
 
 <!-- Include the passage-web JavaScript from the Passage CDN. -->
