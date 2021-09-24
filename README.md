@@ -2,6 +2,40 @@
 
 Passage provides an SDK to easily authenticate HTTP requests. Example source code can be found on GitHub, [here](https://github.com/passageidentity/example-go).
 
+### Setup
+
+For this example app, we'll need to provide our application with a Passage App ID and API Key. Your App ID and API Key can be found in the [Passage Console](https://console.passage.id) in your App Settings. You'll need to change the following environment variables with your respective credentials (note that the default port for this application is 5000):
+
+```go
+	os.Setenv("PASSAGE_APP_ID", "[YOUR_APP_ID_HERE]")
+	os.Setenv("PASSAGE_API_KEY", "[YOUR_PASSAGE_API_KEY_HERE]")
+	os.Setenv("PORT", "5000")
+```
+
+### Run With Go
+
+To run this example app, make sure you have [Go installed on your computer](https://golang.org/doc/install).
+
+Run the following command:
+
+```bash
+go run main.go
+```
+
+### Run With Docker
+
+Create your docker image with the following command:
+
+```bash
+$ docker build -t example-go .
+```
+
+Run your docker container using the example-go image:
+
+```bash
+$ docker run -p 5000:5000 example-go
+```
+
 ### Authenticating an HTTP Request
 
 A Go server can easily authenticate an HTTP request using the Passage SDK, as shown below.
@@ -30,7 +64,7 @@ func exampleHandler(w http.ResponseWriter, r *http.Request) {
 
 ### Authorizing a User
 
-It is important to remember that the `psg.AuthenticateRequest()` function validates that a request is properly authenticated, but makes no assertions about *who* it is authorized for. To perform an authorization check, the Passage User Handle can be referenced.
+It is important to remember that the `psg.AuthenticateRequest()` function validates that a request is properly authenticated, but makes no assertions about _who_ it is authorized for. To perform an authorization check, the Passage User Handle can be referenced.
 
 ```go
 func exampleHandler(w http.ResponseWriter, r *http.Request) {
@@ -57,8 +91,10 @@ func exampleHandler(w http.ResponseWriter, r *http.Request) {
 ```
 
 ## Get User
- To get user information, you can use the Passage SDK with an API key. This will authenticate your web server to Passage and grant you management
- access to user information. API keys should never be hard-coded in source code, but stored in environment variables or a secrets storage mechanism.
+
+To get user information, you can use the Passage SDK with an API key. This will authenticate your web server to Passage and grant you management
+access to user information. API keys should never be hard-coded in source code, but stored in environment variables or a secrets storage mechanism.
+
 ```go
 
 	psg := passage.New("<Passage App Handle>", "<API_KEY>")
@@ -67,7 +103,7 @@ func exampleHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
-   
+
     //information regarding the user will exist in the user variable
 	user, err := psg.GetUser(passageHandle)
 	if err != nil {
