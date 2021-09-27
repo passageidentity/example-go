@@ -10,6 +10,10 @@ import (
 )
 
 func main() {
+	os.Setenv("PASSAGE_APP_ID", "[YOUR_APP_ID_HERE]")
+	os.Setenv("PASSAGE_API_KEY", "[YOUR_PASSAGE_API_KEY_HERE]")
+	os.Setenv("PORT", "5000")
+
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/dashboard", dashboardHandler)
 	http.Handle("/assets/", http.FileServer(http.Dir("./templates")))
@@ -18,7 +22,8 @@ func main() {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "templates/index.html")
+	inputArgs := map[string]interface{}{"appID": os.Getenv("PASSAGE_APP_ID")}
+	outputHTML(w, "templates/index.html", inputArgs)
 }
 
 func outputHTML(w http.ResponseWriter, filename string, data interface{}) {
@@ -35,7 +40,7 @@ func outputHTML(w http.ResponseWriter, filename string, data interface{}) {
 
 func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 	// Authenticate this request using the Passage SDK.
-	psg, err := passage.New("KZ520QJSiFRLvbBvraaAgYuf", &passage.Config{APIKey: os.Getenv("PASSAGE_API_KEY")})
+	psg, err := passage.New(os.Getenv("PASSAGE_APP_ID"), &passage.Config{APIKey: os.Getenv("PASSAGE_API_KEY")})
 	if err != nil {
 		fmt.Println("Cannot create psg: ", err)
 	}
