@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"text/template"
@@ -10,15 +11,16 @@ import (
 )
 
 func main() {
-	os.Setenv("PASSAGE_APP_ID", "[YOUR_APP_ID_HERE]")
-	os.Setenv("PASSAGE_API_KEY", "[YOUR_PASSAGE_API_KEY_HERE]")
-	os.Setenv("PORT", "5000")
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("PORT environment variable required")
+	}
 
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/dashboard", dashboardHandler)
 	http.Handle("/assets/", http.FileServer(http.Dir("./templates")))
 
-	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	http.ListenAndServe(":"+port, nil)
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {

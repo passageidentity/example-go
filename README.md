@@ -4,12 +4,12 @@ Passage provides an SDK to easily authenticate HTTP requests. Example source cod
 
 ### Setup
 
-For this example app, we'll need to provide our application with a Passage App ID and API Key. Your App ID and API Key can be found in the [Passage Console](https://console.passage.id) in your App Settings. You'll need to change the following environment variables with your respective credentials (note that the default port for this application is 5000):
+For this example app, we'll need to provide our application with a Passage App ID and API Key. Your App ID and API Key can be found in the [Passage Console](https://console.passage.id) in your App Settings. You'll need to set the following environment variables with your respective credentials:
 
-```go
-	os.Setenv("PASSAGE_APP_ID", "[YOUR_APP_ID_HERE]")
-	os.Setenv("PASSAGE_API_KEY", "[YOUR_PASSAGE_API_KEY_HERE]")
-	os.Setenv("PORT", "5000")
+```bash
+PASSAGE_APP_ID=
+PASSAGE_API_KEY=
+PORT=5000
 ```
 
 ### Run With Go
