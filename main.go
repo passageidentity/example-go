@@ -7,10 +7,16 @@ import (
 	"os"
 	"text/template"
 
+	"github.com/joho/godotenv"
 	"github.com/passageidentity/passage-go"
 )
 
 func main() {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal("Failed to read .env variables")
+	}
+	
 	port := os.Getenv("PORT")
 	if port == "" {
 		log.Fatal("PORT environment variable required")
