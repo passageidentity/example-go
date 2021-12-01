@@ -4,8 +4,8 @@ github.com/golang-jwt/jwt v3.2.2+incompatible h1:IfV12K8xAKAnZqdXVzCZ+TOjboZ2keL
 github.com/golang-jwt/jwt v3.2.2+incompatible/go.mod h1:8pz2t5EyA70fFQQSrl6XZXzqecmYZeUEB8OUGHkxJ+I=
 github.com/joho/godotenv v1.4.0 h1:3l4+N6zfMWnkbPEXKng2o2/MR5mSwTrBih4ZEkkz1lg=
 github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
-github.com/passageidentity/passage-go v1.1.1 h1:nfc29QFPOhFrdcKr9pU5K4pVhsI+aWxtSxLSWjX4GPE=
-github.com/passageidentity/passage-go v1.1.1/go.mod h1:UvFvzPuSKx16jwWXti/JIaW9+3MfJw2fE+PbMV43I5I=
+github.com/passageidentity/passage-go v1.1.2 h1:tofMiYSzWx63ZK0dzsVyKHeIED+ame2vFRiGJbx6Ux4=
+github.com/passageidentity/passage-go v1.1.2/go.mod h1:bXWdkaW7wJ8Aq4qGalP22UaGxqzzud1+4nDxhJRZuPw=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=

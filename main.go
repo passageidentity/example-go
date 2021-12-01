@@ -63,6 +63,12 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Could not get user: ", err)
 		return
 	}
-	inputArgs := map[string]interface{}{"email": user.Email}
+	var identifier string
+	if user.Email != "" {
+		identifier = user.Email
+	} else {
+		identifier = user.Phone
+	}
+	inputArgs := map[string]interface{}{"identifier": identifier}
 	outputHTML(w, "templates/dashboard.html", inputArgs)
 }
