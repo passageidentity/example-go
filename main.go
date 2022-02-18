@@ -2,23 +2,36 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"text/template"
 
+	"github.com/joho/godotenv"
 	"github.com/passageidentity/passage-go"
 )
 
 func main() {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal("Failed to read .env variables")
+	}
+	
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("PORT environment variable required")
+	}
+
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/dashboard", dashboardHandler)
 	http.Handle("/assets/", http.FileServer(http.Dir("./templates")))
 
-	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	http.ListenAndServe(":"+port, nil)
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "templates/index.html")
+	inputArgs := map[string]interface{}{"appID": os.Getenv("PASSAGE_APP_ID")}
+	outputHTML(w, "templates/index.html", inputArgs)
 }
 
 func outputHTML(w http.ResponseWriter, filename string, data interface{}) {
@@ -35,7 +48,7 @@ func outputHTML(w http.ResponseWriter, filename string, data interface{}) {
 
 func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 	// Authenticate this request using the Passage SDK.
-	psg, err := passage.New("KZ520QJSiFRLvbBvraaAgYuf", &passage.Config{APIKey: os.Getenv("PASSAGE_API_KEY")})
+	psg, err := passage.New(os.Getenv("PASSAGE_APP_ID"), &passage.Config{APIKey: os.Getenv("PASSAGE_API_KEY")})
 	if err != nil {
 		fmt.Println("Cannot create psg: ", err)
 	}
@@ -50,6 +63,12 @@ func dashboardHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Could not get user: ", err)
 		return
 	}
-	inputArgs := map[string]interface{}{"email": user.Email}
+	var identifier string
+	if user.Email != "" {
+		identifier = user.Email
+	} else {
+		identifier = user.Phone
+	}
+	inputArgs := map[string]interface{}{"identifier": identifier}
 	outputHTML(w, "templates/dashboard.html", inputArgs)
 }
