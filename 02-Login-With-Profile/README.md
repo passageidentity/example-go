@@ -123,3 +123,14 @@ The easiest way to add authentication to a web frontend is with a Passage Elemen
 <!-- Include the passage-web JavaScript from the Passage CDN. -->
 <script src="https://cdn.passage.id/passage-web.js"></script>
 ```
+
+## Adding a Profile Page
+
+The profile page is created using the Passage Profile Element that can be imported from the the `@passageidentity/passage-elements` pacakge. In this example application, we automatically use the PASSAGE_APP_ID environment variable in the `app-id` attribute.
+
+```html
+<!-- Passage will populate this div with a complete authentication UI/UX. -->
+<passage-profile app-id="<Passage App ID>"></passage-profile>
+
+<!-- Include the passage-web JavaScript from the Passage CDN. -->
+<script src="https://cdn.passage.id/passage-web.js"></script>
