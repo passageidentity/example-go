@@ -1,3 +1,8 @@
+<img src="https://assets.website-files.com/611bef56e0906b4f195e5adc/6143c10e1d92181a95f86048_PassageLogo.svg" alt="Passage logo" style="width:250px;"/>
+
+<img alt="npm" src="https://img.shields.io/npm/v/@passageidentity/passage-elements?color=43BD15&label=Passage%20Elements">
+<br/><br/>
+
 # Using Passage with Go
 
 Passage provides an SDK to easily authenticate HTTP requests. Example source code can be found on GitHub, [here](https://github.com/passageidentity/example-go).
@@ -27,13 +32,13 @@ go run main.go
 Create your docker image with the following command:
 
 ```bash
-$ docker build -t example-go-1 .
+$ docker build -t example-go-2 .
 ```
 
-Run your docker container using the example-go-1 image:
+Run your docker container using the example-go-2 image:
 
 ```bash
-$ docker run -p 5000:5000 example-go-1
+$ docker run -p 5000:5000 example-go-2
 ```
 
 ### Authenticating an HTTP Request
