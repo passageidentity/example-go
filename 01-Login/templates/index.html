@@ -35,27 +35,24 @@
     </script>
   </head>
   <body>
-    <div class="bg-poly"></div>
-
-    <div class="header">
-      build amazing things
-      <br />
-      with <strong>Passage.</strong>
+    <div class="main-header">
+      <a href="https://passage.id/"><div class="passage-logo"></div></a>
+      <div class="header-text">Passage Go Example App</div>
+      <div class="spacer"></div>
+      <a href="https://passage.id/"><span class="text">Go to Passage</span></a>
     </div>
 
-    <div class="form-container">
+    <div class="main-container">
       <!-- Passage will populate this custom element with a complete authentication UI/UX. -->
       <passage-auth app-id="{{.appID}}"></passage-auth>
       <!-- Include the passage-web JavaScript from the Passage CDN. -->
       <script src="https://cdn.passage.id/passage-web.js"></script>
     </div>
-
     <div class="footer">
-      Implement awesome authentication with two lines of code.
-      <br />
-      <a href="https://passage.id">
-        <button class="btn btn-lg">Request Early Access</button>
-      </a>
+      Learn more with our
+      <u><a href="https://docs.passage.id">Documentation</a></u>
+      and
+      <u><a href="https://github.com/passageidentity">Github</a></u>.
     </div>
   </body>
 </html>
