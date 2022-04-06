@@ -2,10 +2,15 @@
   background: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  width: 410px;
+  width: 310px;
   min-height: 310px;
   margin: 30px auto;
 }
+
+.main-container.profile {
+  width: 410px !important;
+}
+
 .footer {
   text-align: center;
   font-size: 18px;
