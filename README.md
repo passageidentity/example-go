@@ -1,4 +1,4 @@
-<img src="https://storage.googleapis.com/passage-docs/passage-logo-dark-full.png" alt="Passage logo" style="width:250px;"/>
+<img src="https://storage.googleapis.com/passage-docs/passage-logo-gradient.png" alt="Passage logo" style="width:250px;"/>
 <br/><br/>
 
 # Passage Go Examples
